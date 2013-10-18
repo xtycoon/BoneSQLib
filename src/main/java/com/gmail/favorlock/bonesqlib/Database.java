@@ -195,20 +195,22 @@ public abstract class Database {
 	}
 
 	public boolean isTable(String table) {
-		Connection connection;
+		Connection connection = getConnection();
 		Statement statement;
 
 		try {
-			connection = getConnection();
 			statement = connection.createStatement();
 		} catch (SQLException e) {
+			closeConnection(connection);
 			return false;
 		}
 
 		try {
 			statement.executeQuery("SELECT * FROM " + table);
+			closeConnection(connection);
 			return true;
 		} catch (SQLException e) {
+			closeConnection(connection);
 			return false;
 		}
 	}
@@ -220,19 +222,28 @@ public abstract class Database {
 	 * @return the table of results from the query.
 	 */
 	public final ResultSet query(String query) throws SQLException {
-		Connection connection = this.getConnection();
+		Connection connection = getConnection();
 		Statement statement = connection.createStatement();
 		ResultSet rs;
 		if (statement.execute(query)) {
 			rs = statement.getResultSet();
-			connection.close();
+			closeConnection(connection);
 			return rs;
 		} else {
 			int uc = statement.getUpdateCount();
 			this.lastUpdate = uc;
 			rs = connection.createStatement().executeQuery("SELECT " + uc);
-			connection.close();
+			closeConnection(connection);
 			return rs;
+		}
+	}
+
+	public void closeConnection(Connection connection) {
+		try {
+			writeInfo("Sclosing connection");
+			connection.close();
+		} catch (SQLException e) {
+			writeError("Failed to close connection!", false);
 		}
 	}
 }
