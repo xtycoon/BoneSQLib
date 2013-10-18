@@ -97,9 +97,11 @@ public class MySQL extends Database {
 			config.setJdbcUrl("jdbc:mysql://" + getHostname() + ":" + getPort() + "/" + getDatabase());
 			config.setUsername(getUsername());
 			config.setPassword(getPassword());
-			config.setMinConnectionsPerPartition(1);
+			config.setMinConnectionsPerPartition(5);
 			config.setMaxConnectionsPerPartition(10);
 			config.setPartitionCount(1);
+			config.setDefaultAutoCommit(true);
+			config.setDefaultReadOnly(false);
 
 			Properties properties = new Properties();
 			properties.setProperty("zeroDateTimeBehavior", "convertToNull");
