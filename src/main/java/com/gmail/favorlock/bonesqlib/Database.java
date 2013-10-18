@@ -2,9 +2,11 @@ package com.gmail.favorlock.bonesqlib;
 
 import com.jolbox.bonecp.BoneCP;
 import com.jolbox.bonecp.BoneCPConfig;
-import sun.jdbc.odbc.ee.ConnectionPool;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Logger;
 
 /**
@@ -174,8 +176,13 @@ public abstract class Database {
 	/**
 	 * Gets a connection from the connection pool.
 	 */
-	public final Connection getConnection() throws SQLException {
-		return this.getConnectionPool().getConnection();
+	public final Connection getConnection() {
+		try {
+			return this.getConnectionPool().getConnection();
+		} catch (SQLException e) {
+			writeError("Failed to get a connection to the database", true);
+			return null;
+		}
 	}
 
 	/**
@@ -185,6 +192,25 @@ public abstract class Database {
 	 */
 	public final int getLastUpdateCount() {
 		return this.lastUpdate;
+	}
+
+	public boolean isTable(String table) {
+		Connection connection;
+		Statement statement;
+
+		try {
+			connection = getConnection();
+			statement = connection.createStatement();
+		} catch (SQLException e) {
+			return false;
+		}
+
+		try {
+			statement.executeQuery("SELECT * FROM " + table);
+			return true;
+		} catch (SQLException e) {
+			return false;
+		}
 	}
 
 	/**
