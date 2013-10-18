@@ -240,7 +240,6 @@ public abstract class Database {
 
 	public void closeConnection(Connection connection) {
 		try {
-			writeInfo("Sclosing connection");
 			connection.close();
 		} catch (SQLException e) {
 			writeError("Failed to close connection!", false);
