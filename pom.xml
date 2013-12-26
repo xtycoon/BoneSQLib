@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <bukkitVersion>1.6.2-R0.2-SNAPSHOT</bukkitVersion>
+        <bukkitVersion>1.7.2-R0.2-SNAPSHOT</bukkitVersion>
         <bonecpVersion>0.8.0-rc1</bonecpVersion>
     </properties>
 
@@ -53,8 +53,11 @@
 
     <repositories>
         <repository>
-            <id>bukkit-repo</id>
-            <url>http://repo.bukkit.org/content/groups/public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>spigotmc-snapshots</id>
+            <url>http://repo.md-5.net/content/repositories/snapshots</url>
         </repository>
         <repository>
             <releases>
@@ -68,8 +71,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot</artifactId>
             <version>${bukkitVersion}</version>
             <type>jar</type>
             <scope>compile</scope>
