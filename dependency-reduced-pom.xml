@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.gmail.favorlock</groupId>
   <artifactId>BoneSQLib</artifactId>
-  <version>0.0.1</version>
+  <version>0.1.0</version>
   <build>
     <defaultGoal>clean install</defaultGoal>
     <resources>
@@ -57,13 +57,13 @@
     <dependency>
       <groupId>org.spigotmc</groupId>
       <artifactId>spigot</artifactId>
-      <version>1.7.2-R0.2-SNAPSHOT</version>
+      <version>1.7.2-R0.4-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
   <properties>
     <bonecpVersion>0.8.0-rc1</bonecpVersion>
-    <bukkitVersion>1.7.2-R0.2-SNAPSHOT</bukkitVersion>
+    <bukkitVersion>1.7.2-R0.4-SNAPSHOT</bukkitVersion>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
