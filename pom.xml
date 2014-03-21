@@ -6,11 +6,11 @@
 
     <groupId>com.gmail.favorlock</groupId>
     <artifactId>BoneSQLib</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <bukkitVersion>1.7.2-R0.2-SNAPSHOT</bukkitVersion>
+        <bukkitVersion>1.7.2-R0.4-SNAPSHOT</bukkitVersion>
         <bonecpVersion>0.8.0-rc1</bonecpVersion>
     </properties>
 

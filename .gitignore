@@ -6,7 +6,7 @@
 *.ear
 
 *.iml
+/.idea
 
-.idea/
-target/
+/target
 dependency-reduced-pom.xml

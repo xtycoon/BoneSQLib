@@ -31,6 +31,7 @@
                 <includes>
                   <include>com.jolbox:bonecp</include>
                   <include>org.slf4j:*</include>
+                  <include>slf4j_simple_1_6_2:*</include>
                 </includes>
               </artifactSet>
             </configuration>
@@ -41,8 +42,9 @@
   </build>
   <repositories>
     <repository>
-      <id>bukkit-repo</id>
-      <url>http://repo.bukkit.org/content/groups/public/</url>
+      <snapshots />
+      <id>spigotmc-snapshots</id>
+      <url>http://repo.md-5.net/content/repositories/snapshots</url>
     </repository>
     <repository>
       <releases />
@@ -53,15 +55,15 @@
   </repositories>
   <dependencies>
     <dependency>
-      <groupId>org.bukkit</groupId>
-      <artifactId>bukkit</artifactId>
-      <version>1.6.2-R0.2-SNAPSHOT</version>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot</artifactId>
+      <version>1.7.2-R0.2-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
   <properties>
     <bonecpVersion>0.8.0-rc1</bonecpVersion>
-    <bukkitVersion>1.6.2-R0.2-SNAPSHOT</bukkitVersion>
+    <bukkitVersion>1.7.2-R0.2-SNAPSHOT</bukkitVersion>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
